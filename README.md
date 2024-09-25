@@ -1,0 +1,3 @@
+In this repository, I will be documenting my journey through Python programming. It will serve as a collection of my practice files, projects, and other resources that I have worked on throughout my learning process. By regularly updating this repo, I aim to track my progress and showcase the skills I've developed along the way.
+
+My journey began under the guidance of Sir Qasim Hassan, whose teachings have provided me with a strong foundation in Python. This repository reflects the knowledge and hands-on experience I’ve gained, and I hope it will be useful for others who are also learning or interested in exploring Python.
