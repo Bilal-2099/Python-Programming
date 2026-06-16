@@ -1,41 +1,78 @@
-# First With Import A Model Called Random
+# First We Import A Module Called Random
 import random
-# Type Number
-top_of_range = input("Type A Number: ")
-# In This If The Variable Is aceept If Larger Than 0 If Not Then There Is Else And Nested If
-if top_of_range.isdigit():
-    top_of_range = int(top_of_range)
 
-    if top_of_range <= 0:
-        print("Please Type Number Larger Than 0 Next Time. ")
-        quit()
-else:
-    print("Please Type A Number Next Time. ")
+# Welcome Message And Difficulty Selection Menu
+print("""Welcome To The Number Guessing Game!
+        I'm thinking of a number between 1 and 100.
+        You have 5 chances to guess the correct number. 
+        Please select the difficulty level:
+        1. Easy (10 chances)
+        2. Medium (5 chances)
+        3. Hard (3 chances) """)
+
+# Take User Input For Difficulty Level
+difficulty = input("Enter the difficulty level: ")
+
+# Dictionary That Stores Difficulty Names And Their Chances
+difficulties = {
+    "1": {"name": "Easy", "chances": 10},
+    "2": {"name": "Medium", "chances": 5},
+    "3": {"name": "Hard", "chances": 3}
+}
+
+# Check If User Entered A Valid Difficulty
+if difficulty not in difficulties:
+    print("Choose a valid difficulty next time.")
     quit()
-# Now We Take Our Random Module In Use By Randint In It We Enter To Value Start And Stop In Start We Add 0 And In Stop We Add top_of_range
-random_number = random.randint(0, top_of_range)
-# We Add Variable Named Guesses To Count Our guesses
-guesses = 0
-# From Here We Start A Loop That Continues Until The We Guess The Correct Number
+
+# Get Difficulty Name And Chances From Dictionary
+level_name = difficulties[difficulty]["name"]
+chances = difficulties[difficulty]["chances"]
+
+# Display The Selected Difficulty
+print(f"Great! You have selected the {level_name} difficulty level. \n Let's start the game!")
+
+# Generate A Random Number Between 1 And 100
+random_num = random.randint(1, 100)
+
+# Variable To Count User Attempts
+guess = 0
+
+# Start The Game Loop Until User Wins Or Runs Out Of Chances
 while True:
-# No Matter If Our Guess Is Wrong Or Right It Will Add A Value In It
-    guesses += 1
-# Enter Your Guess
-    user_guess = input("Guess A Number: ")
-# Confirm It's A Number
+
+    # Ask User To Guess A Number
+    user_guess = input("Guess The Number: ")
+
+    # Check If The Input Is A Number
     if user_guess.isdigit():
         user_guess = int(user_guess)
     else:
-        print("Please Type A Number Next Time. ")
+        print("Please Type a Number ")
         continue
-# If The Number Is Correct Than Tell Us Or Give Us Hints
-    if user_guess == random_number:
-        print("You Got The Correct Number! ")
+
+    # Make Sure The Number Is Between 1 And 100
+    if not 1 <= user_guess <= 100:
+        print("Please enter a number between 1 and 100.")
+        continue
+
+    # Increase Attempt Counter After A Valid Guess
+    guess += 1
+
+    # Check If The Guess Is Correct Or Give Hints
+    if user_guess == random_num:
+        print(f"Congratulations! You guessed the correct number in {guess} attempts.")
         break
-    elif user_guess > random_number:
-            print("You Were Above The Number ")
+    elif user_guess > random_num:
+        print(f"Incorrect! The number is less than {user_guess}.")
     else:
-        print("You Were Below The Number. ")
-    
-# After Guessing The Correct Number It Tells Us And Mentioned Our Guesses   
-print("You Got It In", guesses, "Guess")
+        print(f"Incorrect! The number is greater than {user_guess}")
+
+    # Calculate And Display Remaining Attempts
+    remaining = chances - guess
+    print(f"Attempts remaining: {remaining}")
+
+    # If User Uses All Chances End The Game
+    if guess >= chances:
+        print("You have run out of attempts. The correct number was", random_num)
+        break
