@@ -4,7 +4,6 @@ import random
 # Welcome Message And Difficulty Selection Menu
 print("""Welcome To The Number Guessing Game!
         I'm thinking of a number between 1 and 100.
-        You have 5 chances to guess the correct number. 
         Please select the difficulty level:
         1. Easy (10 chances)
         2. Medium (5 chances)
