@@ -89,4 +89,4 @@ This project demonstrates:
 * Basic Game Logic
 
 **GitHub Repository:**  
-[Number Guessing Game Script](https://github.com/Bilal-2099/Python-Programming/blob/main/Python%20Projects/Number%20Guesser/Number%20Guesser%20(Easy).py)
+[Number Guessing Game Script](https://github.com/Bilal-2099/Python-Programming/tree/main/Python%20Projects/Number%20Guesser)
